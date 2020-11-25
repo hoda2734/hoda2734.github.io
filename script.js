@@ -98,7 +98,7 @@ const bindGroup = device.createBindGroup({
 
   const computeShaderCode = `#version 450
   #pragma optimize(off)
-  layout (local_size_x = 80, local_size_y = 1, local_size_z = 1) in;
+  layout (local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
   layout(std430, set = 0, binding = 0) readonly buffer FirstArray {
       int size;
       int numbers[];
@@ -138,7 +138,7 @@ const bindGroup = device.createBindGroup({
         memoryBarrierShared();
       
 
-      if(threadIndex < 64){
+      if(threadIndex < 32){
           
               for(int y=0; y<1000000; y++){
                 atomicAdd(Myshared,1);
@@ -147,7 +147,7 @@ const bindGroup = device.createBindGroup({
       }
 
       
-      else if(threadIndex == 64){
+      else if(threadIndex == 32){
         //Uncomment just this to see L3 Hit
           /*   for(int iter=0; iter<2; iter++){
                for(int h=0; h<100; h++){   //2097152; h++){
@@ -177,7 +177,7 @@ const bindGroup = device.createBindGroup({
                 resultArray.numbers[2500] += dummy+dumm[998]+dummy1+dumm[999]+dumm[997];
             }
    
-        if(threadIndex == 64){              
+        if(threadIndex == 32){              
           resultArray.numbers[2501] += dumm[999]+temp;
         }
 
