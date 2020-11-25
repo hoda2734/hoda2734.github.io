@@ -166,7 +166,7 @@ const bindGroup = device.createBindGroup({
                     dumm[997] += dummy2+temp;
                }*/
 // LLC Miss
-               for(int z=1`; z<2048; z++){   //2097152; h++){
+               for(int z=0; z<2048; z++){   //2097152; h++){
                    // int index = unmappedPrime[h];
                     start = atomicAdd(Myshared,0);
                     resultArray.numbers[z] = firstArray.numbers[z*4];
