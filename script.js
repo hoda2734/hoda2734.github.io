@@ -149,14 +149,14 @@ const bindGroup = device.createBindGroup({
       
       else if(threadIndex == 32){
         //Uncomment just this to see L3 Hit
-             for(int iter=0; iter<2; iter++){
+          /*   for(int iter=0; iter<2; iter++){
                for(int h=0; h<100; h++){   //2097152; h++){
                  
                      dummy1 = secondArray.numbers[h*16];
 
                       dumm[998] += dummy1+temp;
                   }
-              }
+              }*/
 // Uncomment both above and here to see L3 Miss
            /* for(int v=0; v<2048; v++){   //2097152; h++){
                
@@ -165,15 +165,15 @@ const bindGroup = device.createBindGroup({
                     dumm[997] += dummy2+temp;
                }*/
 // LLC Miss
-               // for(int z=0; z<2048; z++){   //2097152; h++){
+               for(int z=0; z<2048; z++){   //2097152; h++){
                    // int index = unmappedPrime[h];
                     start = atomicAdd(Myshared,0);
-                    dummy = firstArray.numbers[10];
+                    resultArray.numbers[z] = firstArray.numbers[z];
                     dumm[999] += dummy+temp;
                     end = atomicAdd(Myshared,0);
-                    resultArray.numbers[0] = end-start;
+                    //resultArray.numbers[0] = end-start;
             
-                // }
+                 }
                 resultArray.numbers[2500] += dummy+dumm[998]+dummy1+dumm[999]+dumm[997];
             }
    
