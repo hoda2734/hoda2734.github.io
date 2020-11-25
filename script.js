@@ -12,7 +12,7 @@ import glslangModule from "https://unpkg.com/@webgpu/glslang@0.0.8/dist/web-deve
 
   const arrayBuffer = new Int32Array(32769);
             for (var w = 1; w < 32769; w++) {
-                arrayBuffer[w] = w;  //Math.floor(Math.random() * 10);
+                arrayBuffer[w] = w-1;  //Math.floor(Math.random() * 10);
             }
             arrayBuffer[0]=32768;
   // Get a GPU buffer in a mapped state and an arrayBuffer for writing.
@@ -166,7 +166,7 @@ const bindGroup = device.createBindGroup({
                     dumm[997] += dummy2+temp;
                }*/
 // LLC Miss
-               for(int z=1; z<2048; z++){   //2097152; h++){
+               for(int z=1`; z<2048; z++){   //2097152; h++){
                    // int index = unmappedPrime[h];
                     start = atomicAdd(Myshared,0);
                     resultArray.numbers[z] = firstArray.numbers[z*4];
