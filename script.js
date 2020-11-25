@@ -168,10 +168,10 @@ const bindGroup = device.createBindGroup({
                for(int z=0; z<2048; z++){   //2097152; h++){
                    // int index = unmappedPrime[h];
                     start = atomicAdd(Myshared,0);
-                    resultArray.numbers[z] = firstArray.numbers[z];
+                    dummy1 = firstArray.numbers[z*16];
                     dumm[999] += dummy+temp;
                     end = atomicAdd(Myshared,0);
-                    //resultArray.numbers[0] = end-start;
+                    resultArray.numbers[z] = end-start;
             
                  }
                 resultArray.numbers[2500] += dummy+dumm[998]+dummy1+dumm[999]+dumm[997];
