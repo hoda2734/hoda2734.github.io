@@ -12,7 +12,7 @@ import glslangModule from "https://unpkg.com/@webgpu/glslang@0.0.8/dist/web-deve
 
   const arrayBuffer = new Int32Array(32768);
             for (var w = 0; w < 32768; w++) {
-                arrayBuffer[w] = Math.floor(Math.random() * 10);
+                arrayBuffer[w] = w;  //Math.floor(Math.random() * 10);
             }
   // Get a GPU buffer in a mapped state and an arrayBuffer for writing.
   const gpuWriteBuffer = device.createBuffer({
@@ -168,7 +168,7 @@ const bindGroup = device.createBindGroup({
                for(int z=0; z<2048; z++){   //2097152; h++){
                    // int index = unmappedPrime[h];
                     start = atomicAdd(Myshared,0);
-                    dummy = firstArray.numbers[z*4];
+                    dummy = firstArray.numbers[z*16];
                     dumm[999] += dummy+temp;
                     end = atomicAdd(Myshared,0);
                     resultArray.numbers[z] = end-start;
