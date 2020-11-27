@@ -150,14 +150,14 @@ const bindGroup = device.createBindGroup({
       
       else if(threadIndex == 64){
         //Uncomment just this to see L3 Hit
-          /*   for(int iter=0; iter<2; iter++){
+          //   for(int iter=0; iter<2; iter++){
                for(int h=0; h<100; h++){   //2097152; h++){
                  
                      dummy1 = secondArray.numbers[h*16];
 
                       dumm[998] += dummy1+temp;
                   }
-              }*/
+             // }
 // Uncomment both above and here to see L3 Miss
            /* for(int v=0; v<2048; v++){   //2097152; h++){
                
